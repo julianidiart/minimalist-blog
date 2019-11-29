@@ -1,0 +1,14 @@
+.post-container {
+  align-items: center;
+  border-bottom: 1px dashed $tertiary-color;
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-container:last-child {
+  border-bottom: none;
+}
+
+.post-container p {
+  margin: $s-size 0;
+}

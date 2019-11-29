@@ -3,10 +3,20 @@
 }
 
 body {
+  border-top: 4px solid $secondary-color;
   color: $primary-color;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: $m-size;
   line-height: 1.6;
+  margin: 0;
+}
+
+a:visited {
+  color: $primary-color;
+}
+
+a:hover {
+  color: $secondary-color;
 }
 
 button {

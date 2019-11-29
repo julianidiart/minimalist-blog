@@ -1,9 +1,14 @@
 import React from "react";
+import Header from "../../components/Header";
+import Main from "../../components/Main";
+import Footer from "../../components/Footer";
 
 const MinimalistBlog = () => (
-  <div className="page-container">
-    <h1>Minimalist Blog</h1>
-  </div>
+  <>
+    <Header />
+    <Main />
+    <Footer />
+  </>
 );
 
 export default MinimalistBlog;
