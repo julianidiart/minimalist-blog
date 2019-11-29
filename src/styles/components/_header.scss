@@ -1,0 +1,14 @@
+header {
+  margin: $s-size auto;
+  text-align: center;
+  width: 30em;
+}
+
+header p {
+  color: lighten($primary-color, 50%);
+}
+
+.header--top-line {
+  width: 100%;
+  border-bottom: 4px solid $secondary-color;
+}
