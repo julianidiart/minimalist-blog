@@ -1,8 +1,4 @@
-# env
-/config/dev.js
-
-# dependencies
 node_modules
-
-# vscode
 .vscode
+/config/dev.js
+/client
