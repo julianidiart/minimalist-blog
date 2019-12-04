@@ -1,5 +1,8 @@
+# env
+/config/dev.js
+
 # dependencies
-/node_modules
+node_modules
 
 # vscode
 .vscode

@@ -1,6 +1,14 @@
 const express = require("express");
 const graphqlHTTP = require("express-graphql");
+const mongoose = require("mongoose");
 const schema = require("./schema");
+const keys = require("./config/keys");
+
+mongoose.connect(keys.mongoURI);
+
+mongoose.connection.once("open", () => {
+  console.log("Connected to MongoDB database");
+});
 
 const app = express();
 
@@ -12,6 +20,4 @@ app.use(
   })
 );
 
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+app.listen(keys.port, () => console.log(`Server started on port ${keys.port}`));
