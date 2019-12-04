@@ -1,4 +1,5 @@
 const axios = require("axios");
+const posts = require("./fixtures/posts");
 
 const {
   GraphQLObjectType,
@@ -34,7 +35,7 @@ const RootQuery = new GraphQLObjectType({
     posts: {
       type: new GraphQLList(PostType),
       resolve(parent, args) {
-        return axios.get("URL").then(res => res.data);
+        return posts;
       }
     },
     post: {
@@ -43,7 +44,7 @@ const RootQuery = new GraphQLObjectType({
         id: { type: GraphQLInt }
       },
       resolve(parent, args) {
-        return axios.get(`URL/${id}`).then(res => res.data);
+        return posts.find(post => post.id === args.id);
       }
     }
   }
