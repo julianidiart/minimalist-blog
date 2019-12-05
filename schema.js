@@ -2,7 +2,6 @@ const Post = require("./models/post");
 const Tag = require("./models/tag");
 
 const {
-  Input,
   GraphQLID,
   GraphQLList,
   GraphQLNonNull,
@@ -15,9 +14,9 @@ const PostType = new GraphQLObjectType({
   name: "Post",
   fields: () => ({
     id: { type: GraphQLID },
-    date: { type: GraphQLString },
     title: { type: GraphQLString },
     subtitle: { type: GraphQLString },
+    date: { type: GraphQLString },
     body: { type: GraphQLString },
     tags: { type: new GraphQLList(GraphQLString) }
   })
@@ -73,9 +72,9 @@ const Mutation = new GraphQLObjectType({
     addPost: {
       type: PostType,
       args: {
-        date: { type: new GraphQLNonNull(GraphQLString) },
         title: { type: new GraphQLNonNull(GraphQLString) },
         subtitle: { type: GraphQLString },
+        date: { type: new GraphQLNonNull(GraphQLString) },
         body: { type: GraphQLString },
         tags: { type: new GraphQLList(GraphQLString) }
       },
