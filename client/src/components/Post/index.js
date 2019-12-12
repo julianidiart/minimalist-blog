@@ -1,13 +1,12 @@
 import React from "react";
+import Moment from "react-moment";
 
 const Post = ({ post }) => (
   <>
     <article className="post-container">
-      <div className="post-container--title">
-        <p>{post.title}</p>
-        <span>{post.date}</span>
-      </div>
-      <p className="post-container--subtitle">{post.subtitle}</p>
+      <h3>{post.title}</h3>
+      <p>{post.subtitle}</p>
+      <Moment date={post.date} format="D MMM" />
     </article>
   </>
 );
