@@ -1,5 +1,4 @@
 node_modules
 .vscode
 /config/dev.js
-/client
 .DS_STORE

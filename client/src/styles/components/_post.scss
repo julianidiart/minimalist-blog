@@ -1,0 +1,30 @@
+.post-container {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin: $m-size 0;
+}
+
+.post-container--title {
+  color: lighten($primary-color, 20%);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.post-container:hover {
+  cursor: pointer;
+}
+
+.post-container:hover .post-container--title p {
+  color: white;
+  background: lighten($secondary-color, 10%);
+}
+
+.post-container--title span {
+  color: lighten($primary-color, 70%);
+}
+
+.post-container--subtitle {
+  color: lighten($primary-color, 50%);
+}

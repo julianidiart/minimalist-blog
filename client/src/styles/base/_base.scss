@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: $primary-color;
+  font-family: "Roboto", sans-serif;
+  font-size: $m-size;
+  line-height: 1.6;
+  margin: 0;
+}
+
+a {
+  color: $primary-color;
+}
+
+a:visited {
+  color: $primary-color;
+}
+
+a:hover {
+  color: $secondary-color;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
