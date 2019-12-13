@@ -1,8 +1,8 @@
 import React from "react";
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
-import Post from "../Post";
-import Loading from "../Loading";
+import Post from "../../components/Post";
+import Loading from "../../components/Loading";
 
 const POSTS_QUERY = gql`
   query PostsQuery {
@@ -15,7 +15,7 @@ const POSTS_QUERY = gql`
   }
 `;
 
-const Blog = () => {
+const BlogPage = () => {
   return (
     <div>
       <Query query={POSTS_QUERY}>
@@ -32,4 +32,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default BlogPage;
