@@ -9,7 +9,7 @@ const Post = ({ post }) => (
         <h3>{post.title}</h3>
       </Link>
       <p>{post.subtitle}</p>
-      <Moment date={post.date} format="D MMM" />
+      <Moment unix date={post.date} format="D MMM" />
     </article>
   </>
 );
