@@ -1,5 +1,7 @@
+const User = require("./models/user");
 const Post = require("./models/post");
 const Tag = require("./models/tag");
+const bcrypt = require("bcryptjs");
 
 const {
   GraphQLID,
@@ -9,6 +11,14 @@ const {
   GraphQLSchema,
   GraphQLString
 } = require("graphql");
+
+const UserType = new GraphQLObjectType({
+  name: "User",
+  fields: () => ({
+    email: { type: GraphQLString },
+    password: { type: GraphQLString }
+  })
+});
 
 const PostType = new GraphQLObjectType({
   name: "Post",
@@ -69,6 +79,31 @@ const RootQuery = new GraphQLObjectType({
 const Mutation = new GraphQLObjectType({
   name: "Mutation",
   fields: {
+    createUser: {
+      type: UserType,
+      args: {
+        email: { type: new GraphQLNonNull(GraphQLString) },
+        password: { type: new GraphQLNonNull(GraphQLString) }
+      },
+      resolve: (parent, args) => {
+        const { email, password } = args;
+        return User.findOne({ email })
+          .then(user => {
+            if (user) throw new Error("User exists already.");
+            return bcrypt.hash(password, 12);
+          })
+          .then(hashedPassword => {
+            let user = new User({
+              email,
+              password: hashedPassword
+            });
+            return user.save();
+          })
+          .catch(err => {
+            throw err;
+          });
+      }
+    },
     addPost: {
       type: PostType,
       args: {
